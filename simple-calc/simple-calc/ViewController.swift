@@ -46,8 +46,6 @@ class ViewController: UIViewController {
             displayFunction.text = sender.titleLabel!.text!;
             operation = sender.titleLabel!.text!;
         } else if (sender.titleLabel!.text == "=") {
-            print("prev num is " + String(previousNum))
-            print("curre num is " + String(currentNum))
             args.append(currentNum)
             if (operation == "+") {
                 displayFunction.text = String(previousNum + currentNum);
@@ -76,33 +74,19 @@ class ViewController: UIViewController {
                     args.removeLast();
                 }
                 displayFunction.text = String(args.count);
-                print(args)
             } else if (operation == "AVG") {
                 if (displayFunction.text == "AVG") {
                     args.removeLast();
                 }
                 let sumOfArray = args.reduce(0, +)
-                print(sumOfArray)
-
                 displayFunction.text = String(sumOfArray / Double(args.count))
-                print(args)
             }
             operation = "";
             currentNum = 0;
             args = [];
             previousNum = 0;
-            print("prev num is " + String(previousNum))
-            print("curre num is " + String(currentNum))
             calculating = true;
         }
     }
-    
-    
-    
-    @IBAction func getAnswer(_ sender: UIButton) {
-        
-        
-    }
-
 }
 
